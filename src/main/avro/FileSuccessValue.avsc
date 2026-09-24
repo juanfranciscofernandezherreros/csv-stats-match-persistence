@@ -1,1 +1,0 @@
-{"type":"record","name":"FileSuccessValue","namespace":"com.example.csvwatcher.watcher","fields":[{"name":"matchId","type":"string"},{"name":"fileName","type":"string"},{"name":"filePath","type":"string"},{"name":"fileType","type":"string"},{"name":"successMessage","type":"string"},{"name":"timestamp","type":{"type":"long","logicalType":"timestamp-millis"}}]}
