@@ -1,1 +1,0 @@
-{"type":"record","name":"FileErrorKey","namespace":"com.example.csvwatcher.watcher","fields":[{"name":"matchId","type":"string"}]}

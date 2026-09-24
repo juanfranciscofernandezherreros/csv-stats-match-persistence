@@ -1,15 +1,15 @@
-Current version: **1.0.0**
+Current version: **1.0.1**
 
 # csv-stats-match-persistence
 
 Persistencia separada de `csv-stats-match`.
 
 ```text
-stats-match.parsed -> PostgreSQL + file.success/file.errors
+stats-match.parsed -> csv-stats-match-persistence -> PostgreSQL match_summary
 ```
 
-Consume Avro `PARSED` / `FAILED`. Conserva las tablas `match_summary`, `csv_status` y `processed_file_event`, la idempotencia por `eventId` y el comportamiento de ignorar un `matchId` ya existente.
+Consume `StatsMatchKey` / `StatsMatchValue` desde `stats-match.parsed` y persiste el resumen en PostgreSQL.
 
-Cuando un resumen nuevo se guarda correctamente publica `file.success`; un mensaje `FAILED` registra `ERROR` y publica `file.errors`.
+La responsabilidad del micro termina en la base de datos: **no publica topics de salida**, no gestiona `file.success` / `file.errors` y no mantiene `csv_status`. Si el `matchId` ya existe, ignora la reentrega.
 
 El PR se fusiona automáticamente a `main` cuando pasan los checks y después elimina la rama origen.
