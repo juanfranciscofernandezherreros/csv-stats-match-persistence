@@ -1,0 +1,1 @@
+{"type":"record","name":"FileSuccessKey","namespace":"com.example.csvwatcher.watcher","fields":[{"name":"matchId","type":"string"}]}

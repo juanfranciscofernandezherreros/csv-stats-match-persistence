@@ -1,0 +1,5 @@
+{
+  "namespace":"com.example.matchsummary.avro",
+  "type":"record","name":"StatsMatchKey",
+  "fields":[{"name":"sourceEventId","type":"string"}]
+}
