@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0.4-blue)
+![version](https://img.shields.io/badge/version-1.0.5-blue)
 # csv-stats-match-persistence
 
 Persistencia separada de `csv-stats-match`.
