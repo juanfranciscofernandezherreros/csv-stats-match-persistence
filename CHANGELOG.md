@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6 - 2026-09-25
+
+- [patch] KAN-81 sustituye los schemas locales `StatsMatchKey`/`StatsMatchValue` por `basketball-event-contracts:1.0.2`.
+- [patch] Elimina generación Avro local y configura CI con lectura autenticada desde GitHub Packages.
+- [patch] Mantiene el contrato Kafka y el modelo de persistencia PostgreSQL sin cambios.
+
 ## 1.0.5 - 2026-09-25
 
 - [patch] Refuerza AGENTS.md con lectura obligatoria por tarea, autonomía y prohibición absoluta de escrituras directas en main.
