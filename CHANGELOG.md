@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2 - 2026-09-25
+
+- [patch] Exige confirmar rama y nivel SemVer antes de cualquier cambio.
+
 ## 1.0.1 - 2026-09-24
 - Simplifica persistence para que solo consuma Kafka y escriba en PostgreSQL.
 - Elimina `file.success`, `file.errors`, `csv_status` y `processed_file_event`.
