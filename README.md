@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0.6-blue)
+![version](https://img.shields.io/badge/version-1.1.0-blue)
 # csv-stats-match-persistence
 
 Persistencia separada de `csv-stats-match`.
@@ -17,3 +17,17 @@ El PR se fusiona automáticamente a `main` cuando pasan los checks y después el
 ## Contratos Avro compartidos
 
 `StatsMatchKey` y `StatsMatchValue` se consumen desde `com.fernandez.basketball:basketball-event-contracts:1.0.2`. Este repositorio ya no mantiene copias locales de esos schemas.
+
+
+## Estrategia de errores Kafka
+
+KAN-107 aplica la política de KAN-18 al consumo de `stats-match.parsed`.
+
+- errores de datos o integridad: non-retryable;
+- fallos transitorios de PostgreSQL: retryable;
+- mensajes agotados: `stats-match.parsed.DLT`;
+- `KAFKA_RETRY_MAX_ATTEMPTS`: intentos totales, default `3`;
+- `KAFKA_RETRY_BACKOFF_MS`: backoff fijo, default `1000`;
+- `KAFKA_MATCH_PERSISTENCE_DLT_TOPIC`: topic DLT configurable.
+
+Spring Kafka publica el registro original en DLT con headers de excepción y contexto.
