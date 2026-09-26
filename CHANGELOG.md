@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 - 2026-09-26
+
+- [minor] KAN-46 sustituye el first-write-wins implícito por una política current-state explícita para reimportaciones de MATCH.
+- [minor] KAN-47 elimina la carrera `existsByMatchId() -> saveAndFlush()` mediante `INSERT ... ON CONFLICT (match_id) DO UPDATE`.
+- [minor] Mantiene la constraint `UNIQUE(match_id)` como garantía de identidad en PostgreSQL.
+- [minor] Añade tests de integración para primera importación, reimportación corregida y redelivery concurrente.
+
 ## 1.1.1 - 2026-09-26
 
 - [patch] KAN-107 captura errores de deserialización Avro mediante `ErrorHandlingDeserializer`.
