@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.1.0-blue)
+![version](https://img.shields.io/badge/version-1.1.1-blue)
 # csv-stats-match-persistence
 
 Persistencia separada de `csv-stats-match`.
@@ -31,3 +31,8 @@ KAN-107 aplica la política de KAN-18 al consumo de `stats-match.parsed`.
 - `KAFKA_MATCH_PERSISTENCE_DLT_TOPIC`: topic DLT configurable.
 
 Spring Kafka publica el registro original en DLT con headers de excepción y contexto.
+
+
+### Deserialización y DLT
+
+Los deserializadores Avro están envueltos con `ErrorHandlingDeserializer`, por lo que un payload corrupto o incompatible entra en el flujo normal de recuperación. La DLT `stats-match.parsed.DLT` admite objetos Avro y `byte[]` originales, conserva los headers de diagnóstico, deja que Kafka seleccione una partición válida y propaga cualquier fallo de publicación.
