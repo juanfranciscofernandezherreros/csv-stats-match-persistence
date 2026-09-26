@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 - 2026-09-26
+
+- [patch] KAN-152 documenta la evaluación de batching de KAN-22 para MATCH.
+- [patch] Mantiene intencionadamente el listener individual porque cada fichero produce un único resumen y un batch de tamaño 1 no reduce sentencias ni round-trips.
+- [patch] Añade un test del consumer que fija explícitamente el comportamiento de un resumen por registro sin alterar idempotencia ni retry/DLT.
+
 ## 1.2.0 - 2026-09-26
 
 - [minor] KAN-46 sustituye el first-write-wins implícito por una política current-state explícita para reimportaciones de MATCH.
